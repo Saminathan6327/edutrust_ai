@@ -1,19 +1,19 @@
-# 🎓 EduTrust AI: Trustworthy Conversational AI Student Assistant
+# EduTrust AI: Trustworthy Conversational AI Student Assistant
 
 EduTrust AI is a production-grade, trustworthy conversational AI system designed for higher education institutions. It provides context-aware academic advising, course registration guidance, policy clarification, and intelligent human handover for university students.
 
 ---
 
-## 🌟 Key Capabilities & Features
+## Key Capabilities & Features
 
-### 1. 🧠 Context Awareness & Multi-Turn Memory (`memory_manager.py`)
+### 1. Context Awareness & Multi-Turn Memory (`memory_manager.py`)
 - **Session Context Tracking**: Maintains full dialogue history across multi-turn sessions.
 - **Entity Store & Extraction**: Automatically extracts and persists student profile entities:
   - Student ID, Name, Major, CGPA/GPA, Academic Year, Target Course Code, Attendance Percentage.
 - **Topic Stack & Topic Switching**: Tracks active discussion topics (e.g. *Attendance Policy* -> *Course Registration*) and seamlessly handles topic returns/resumes.
 - **Sliding Window + Summary Memory**: Maintains an active sliding window for recent turns while generating structured summaries for earlier overflow messages.
 
-### 2. 🛡️ Responsible AI, Groundedness & Uncertainty Handling (`agent_engine.py` & `knowledge_base.py`)
+### 2. Responsible AI, Groundedness & Uncertainty Handling (`agent_engine.py` & `knowledge_base.py`)
 - **RAG-Based Factual Groundedness**: Every answer is grounded in official university regulations, course catalogs, and student FAQs with inline source citations.
 - **Confidence Estimation & Scoring (0.0 to 1.0)**: Combines TF-IDF vector similarity and query token coverage to calculate a live confidence score.
 - **Transparent Admission of Missing Info**: Admits when knowledge is absent or below confidence threshold without fabricating hallucinated responses.
@@ -22,7 +22,7 @@ EduTrust AI is a production-grade, trustworthy conversational AI system designed
   - **Self-Harm / Mental Health Crisis**: Detects distress keywords and instantly provides University Health Center and 24/7 hotline resources (+1-800-EDUTRUST-HEALTH).
   - **Toxicity & Profanity**: Enforces respectful academic discourse.
 
-### 3. 🚨 Intelligent Human Handover (`handover_manager.py`)
+### 3. Intelligent Human Handover (`handover_manager.py`)
 - **Multi-Criteria Handover Triggers**:
   - Explicit user escalation request ("connect me to an advisor").
   - High student frustration / negative sentiment threshold (> 0.60).
@@ -37,7 +37,7 @@ EduTrust AI is a production-grade, trustworthy conversational AI system designed
 
 ---
 
-## 🏗️ System Architecture & File Structure
+## System Architecture & File Structure
 
 ```
 edutrust_ai/
@@ -58,7 +58,7 @@ edutrust_ai/
 
 ---
 
-## 🚀 Installation & Running the Application
+## Installation & Running the Application
 
 ### 1. Prerequisites
 Ensure Python 3.9+ is installed on your system.
@@ -77,7 +77,7 @@ The web application will open in your browser at `http://localhost:8501`.
 
 ---
 
-## 🧪 Demo Test Scenarios & Walkthrough
+## Demo Test Scenarios & Walkthrough
 
 You can test the core capabilities using the **Quick Test Buttons** in Tab 1 or by typing the following prompts:
 
@@ -105,5 +105,5 @@ You can test the core capabilities using the **Quick Test Buttons** in Tab 1 or 
 
 ---
 
-## 🛡️ License & Compliance
+## License & Compliance
 Designed in compliance with responsible AI principles, data privacy guidelines, and academic integrity regulations for higher education institutions.
