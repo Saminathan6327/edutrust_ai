@@ -1,0 +1,74 @@
+{
+  "courses": [
+    {
+      "code": "CS101",
+      "title": "Introduction to Computer Science & Python",
+      "credits": 3,
+      "department": "Computer Science",
+      "semester": "Fall & Spring",
+      "prerequisites": "None",
+      "instructor": "Dr. Aris Thorne",
+      "syllabus": "Fundamental concepts of programming, algorithms, data structures, variables, loops, functions, object-oriented design, and problem solving in Python."
+    },
+    {
+      "code": "CS201",
+      "title": "Data Structures & Algorithms",
+      "credits": 4,
+      "department": "Computer Science",
+      "semester": "Fall & Spring",
+      "prerequisites": "CS101",
+      "instructor": "Prof. Elena Rostova",
+      "syllabus": "Arrays, linked lists, stacks, queues, trees, graphs, hashing, sorting algorithms, dynamic programming, and asymptotic complexity analysis (Big-O)."
+    },
+    {
+      "code": "CS302",
+      "title": "Database Management Systems",
+      "credits": 3,
+      "department": "Computer Science",
+      "semester": "Fall",
+      "prerequisites": "CS201",
+      "instructor": "Dr. Marcus Vance",
+      "syllabus": "Relational database design, ER diagrams, SQL querying, normalization (1NF to BCNF), indexing, transaction processing, and introduction to NoSQL databases."
+    },
+    {
+      "code": "DS202",
+      "title": "Foundations of Data Science & Machine Learning",
+      "credits": 4,
+      "department": "Data Science",
+      "semester": "Spring",
+      "prerequisites": "CS101, MATH101",
+      "instructor": "Dr. Maya Lin",
+      "syllabus": "Exploratory data analysis, Pandas, NumPy, scikit-learn, regression models, classification, clustering, evaluation metrics, and ethical AI overview."
+    },
+    {
+      "code": "MATH101",
+      "title": "Calculus & Linear Algebra for Engineers",
+      "credits": 4,
+      "department": "Mathematics",
+      "semester": "Fall & Spring",
+      "prerequisites": "High School Mathematics",
+      "instructor": "Prof. Alan Vance",
+      "syllabus": "Limits, derivatives, integration, matrices, vector spaces, eigenvalues, eigenvectors, and application of linear algebra to data science."
+    },
+    {
+      "code": "BUS210",
+      "title": "Principles of Financial Management",
+      "credits": 3,
+      "department": "Business Administration",
+      "semester": "Fall",
+      "prerequisites": "None",
+      "instructor": "Dr. Sarah Jenkins",
+      "syllabus": "Time value of money, risk and return, financial statement analysis, capital budgeting, corporate finance, and valuation techniques."
+    },
+    {
+      "code": "AI401",
+      "title": "Artificial Intelligence & Conversational Agents",
+      "credits": 4,
+      "department": "Computer Science",
+      "semester": "Spring",
+      "prerequisites": "CS201, DS202",
+      "instructor": "Dr. Sophia Patel",
+      "syllabus": "Natural language processing, transformer architectures, LLMs, RAG systems, prompt engineering, agentic workflows, and ethical AI guardrails."
+    }
+  ]
+}
