@@ -17,40 +17,217 @@ st.set_page_config(
 # Custom Styling
 st.markdown("""
 <style>
+    /* Import Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+    /* Global Body Font & Background overrides */
+    .stApp {
+        background-color: #F5F2EB !important;
+        font-family: 'Inter', sans-serif !important;
+        color: #1A1A1A !important;
+    }
+
+    /* Sidebar Background & Border */
+    [data-testid="stSidebar"] {
+        background-color: #FFFFFF !important;
+        border-right: 1px solid #D3D3D3 !important;
+    }
+    [data-testid="stSidebar"] * {
+        font-family: 'Inter', sans-serif !important;
+    }
+    [data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3, [data-testid="stSidebar"] h4 {
+        font-family: 'Playfair Display', Georgia, serif !important;
+        color: #1A1A1A !important;
+        font-weight: 600 !important;
+    }
+
+    /* Header styling matching Cognita Quill */
     .main-header {
-        font-size: 2.2rem;
-        color: #1E3A8A;
-        font-weight: 700;
-        margin-bottom: 0px;
+        font-family: 'Playfair Display', Georgia, serif !important;
+        font-size: 2.3rem !important;
+        color: #1A1A1A !important;
+        font-weight: 800 !important;
+        text-align: center !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.12em !important;
+        margin-top: 10px !important;
+        margin-bottom: 5px !important;
+        border-top: 2px solid #1A1A1A !important;
+        border-bottom: 1px solid #1A1A1A !important;
+        padding: 18px 0 !important;
     }
     .sub-header {
-        font-size: 1.05rem;
-        color: #4B5563;
-        margin-bottom: 20px;
+        font-family: 'Inter', sans-serif !important;
+        font-size: 0.8rem !important;
+        color: #666666 !important;
+        text-align: center !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.18em !important;
+        margin-bottom: 25px !important;
+        font-weight: 500 !important;
+        border-bottom: 1px solid #E6E2D8 !important;
+        padding-bottom: 15px !important;
     }
-    .metric-card {
-        background-color: #F3F4F6;
-        padding: 12px;
-        border-radius: 8px;
-        border-left: 4px solid #3B82F6;
+
+    /* Academic Headings */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Playfair Display', Georgia, serif !important;
+        color: #1A1A1A !important;
+        font-weight: 600 !important;
     }
-    .ticket-card {
-        background-color: #FFFFFF;
-        padding: 16px;
-        border-radius: 8px;
-        border: 1px solid #E5E7EB;
-        margin-bottom: 12px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
+
+    /* Tabs Styling - Wix Category Navigation Menu Style */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 8px;
+        gap: 30px !important;
+        border-bottom: 1px solid #D3D3D3 !important;
+        justify-content: center !important;
+        margin-bottom: 25px !important;
+        background-color: transparent !important;
     }
     .stTabs [data-baseweb="tab"] {
-        height: 50px;
-        white-space: pre-wrap;
-        border-radius: 4px 4px 0px 0px;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        height: 48px !important;
+        font-family: 'Inter', sans-serif !important;
+        font-size: 0.85rem !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.1em !important;
+        color: #666666 !important;
+        background-color: transparent !important;
+        border: none !important;
+        padding: 0 12px !important;
+    }
+    .stTabs [data-baseweb="tab"]:hover {
+        color: #1A1A1A !important;
+    }
+    .stTabs [data-baseweb="tab"][aria-selected="true"] {
+        color: #1A1A1A !important;
+        font-weight: 700 !important;
+        border-bottom: 2px solid #1A1A1A !important;
+    }
+
+    /* Metrics Container Styling */
+    div[data-testid="metric-container"] {
+        background-color: #FFFFFF !important;
+        border: 1px solid #D3D3D3 !important;
+        border-radius: 4px !important;
+        padding: 15px !important;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.02) !important;
+        text-align: center !important;
+        transition: transform 0.2s ease !important;
+    }
+    div[data-testid="metric-container"]:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.04) !important;
+    }
+    div[data-testid="metric-container"] [data-testid="stMetricLabel"] {
+        font-family: 'Inter', sans-serif !important;
+        font-size: 0.75rem !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.08em !important;
+        color: #666666 !important;
+        justify-content: center !important;
+    }
+    div[data-testid="metric-container"] [data-testid="stMetricValue"] {
+        font-family: 'Playfair Display', Georgia, serif !important;
+        font-size: 1.6rem !important;
+        font-weight: 700 !important;
+        color: #1A1A1A !important;
+    }
+
+    /* Expander / Ticket Card Styling */
+    div[data-testid="stExpander"] {
+        background-color: #FFFFFF !important;
+        border: 1px solid #D3D3D3 !important;
+        border-radius: 4px !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.02) !important;
+        margin-bottom: 15px !important;
+        overflow: hidden !important;
+    }
+    div[data-testid="stExpander"] summary {
+        font-family: 'Playfair Display', Georgia, serif !important;
+        font-size: 1.05rem !important;
+        font-weight: 600 !important;
+        color: #1A1A1A !important;
+        background-color: #FFFFFF !important;
+        padding: 15px !important;
+        transition: background-color 0.2s ease !important;
+    }
+    div[data-testid="stExpander"] summary:hover {
+        background-color: #FAF9F6 !important;
+    }
+    div[data-testid="stExpander"] [data-testid="stExpanderDetails"] {
+        border-top: 1px solid #E6E2D8 !important;
+        padding: 20px !important;
+        background-color: #FAF9F6 !important;
+    }
+
+    /* Flat Solid & Outline Buttons */
+    div.stButton > button {
+        background-color: #1A1A1A !important;
+        color: #FFFFFF !important;
+        border: 1px solid #1A1A1A !important;
+        border-radius: 4px !important;
+        padding: 8px 20px !important;
+        font-family: 'Inter', sans-serif !important;
+        font-size: 0.8rem !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.1em !important;
+        transition: all 0.2s ease !important;
+        width: 100% !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+    }
+    div.stButton > button:hover {
+        background-color: #FFFFFF !important;
+        color: #1A1A1A !important;
+        border-color: #1A1A1A !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+    }
+    /* Accent Terracotta button for Escalation */
+    div.stButton > button[kind="primary"] {
+        background-color: #8C2D19 !important;
+        border-color: #8C2D19 !important;
+    }
+    div.stButton > button[kind="primary"]:hover {
+        background-color: #FFFFFF !important;
+        color: #8C2D19 !important;
+        border-color: #8C2D19 !important;
+    }
+
+    /* Inputs, Selectboxes, Textareas styling */
+    div[data-baseweb="input"], div[data-baseweb="textarea"], div[data-baseweb="select"] {
+        background-color: #FFFFFF !important;
+        border: 1px solid #D3D3D3 !important;
+        border-radius: 4px !important;
+        font-family: 'Inter', sans-serif !important;
+        color: #1A1A1A !important;
+    }
+    div[data-baseweb="input"] input, div[data-baseweb="textarea"] textarea {
+        color: #1A1A1A !important;
+    }
+
+    /* Chat Messages Styling */
+    div[data-testid="stChatMessage"] {
+        background-color: #FFFFFF !important;
+        border: 1px solid #D3D3D3 !important;
+        border-radius: 4px !important;
+        padding: 16px !important;
+        margin-bottom: 12px !important;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.01) !important;
+    }
+    div[data-testid="stChatMessage"][data-is-user="true"] {
+        background-color: #FAF9F6 !important;
+        border-left: 3px solid #1A1A1A !important;
+    }
+
+    /* Custom Cards */
+    .sidebar-card {
+        background-color: #FAF9F6 !important;
+        border: 1px solid #E6E2D8 !important;
+        border-radius: 4px !important;
+        padding: 16px !important;
+        margin-bottom: 18px !important;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.01) !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -109,35 +286,60 @@ with st.sidebar:
     st.divider()
 
     # Extracted Student Profile
-    st.markdown("#### **Extracted Student Profile**")
     ents = memory.entities
-    st.write(f"👤 **Name**: {ents.get('student_name') or 'Anonymous'}")
-    st.write(f"🆔 **Student ID**: `{ents.get('student_id') or 'Not Extracted'}`")
-    st.write(f"📚 **Major**: {ents.get('major') or 'Not Specified'}")
-    st.write(f"🎓 **CGPA**: {ents.get('cgpa') or 'N/A'}")
-    st.write(f"📖 **Target Course**: `{ents.get('target_course') or 'N/A'}`")
     att_str = f"{ents['attendance_percentage']}%" if ents.get('attendance_percentage') else 'N/A'
-    st.write(f"📊 **Attendance**: {att_str}")
-
-    st.divider()
+    profile_html = f"""
+    <div class="sidebar-card">
+        <h4 style="margin-top:0; margin-bottom:12px; font-family:'Playfair Display', Georgia, serif; font-size:1.1rem; border-bottom:1px solid #E6E2D8; padding-bottom:6px;">Extracted Profile</h4>
+        <p style="margin: 6px 0; font-size:0.85rem;">👤 <strong>Name</strong>: {ents.get('student_name') or 'Anonymous'}</p>
+        <p style="margin: 6px 0; font-size:0.85rem;">🆔 <strong>Student ID</strong>: <code style="font-size:0.75rem; background: #E6E2D8; padding: 2px 4px; border-radius: 2px;">{ents.get('student_id') or 'Not Extracted'}</code></p>
+        <p style="margin: 6px 0; font-size:0.85rem;">📚 <strong>Major</strong>: {ents.get('major') or 'Not Specified'}</p>
+        <p style="margin: 6px 0; font-size:0.85rem;">🎓 <strong>CGPA</strong>: {ents.get('cgpa') or 'N/A'}</p>
+        <p style="margin: 6px 0; font-size:0.85rem;">📖 <strong>Target Course</strong>: <code style="font-size:0.75rem; background: #E6E2D8; padding: 2px 4px; border-radius: 2px;">{ents.get('target_course') or 'N/A'}</code></p>
+        <p style="margin: 6px 0; font-size:0.85rem;">📊 <strong>Attendance</strong>: {att_str}</p>
+    </div>
+    """
+    st.markdown(profile_html, unsafe_allow_html=True)
 
     # Live AI Trust & Confidence Meter
-    st.markdown("#### **AI Confidence & Safety Meter**")
     conf = st.session_state.last_metrics["confidence_score"]
     level = st.session_state.last_metrics["confidence_level"]
     ground = st.session_state.last_metrics["groundedness_score"]
     frict = st.session_state.last_metrics["friction_score"]
 
-    st.write(f"**Confidence Level**: `{level}`")
-    st.progress(conf)
-    
-    st.write(f"**RAG Groundedness**: `{ground:.2f}`")
-    st.progress(ground)
-    
-    st.write(f"**Frustration/Friction**: `{frict:.2f}`")
-    st.progress(frict)
-
-    st.divider()
+    meters_html = f"""
+    <div class="sidebar-card">
+        <h4 style="margin-top:0; margin-bottom:12px; font-family:'Playfair Display', Georgia, serif; font-size:1.1rem; border-bottom:1px solid #E6E2D8; padding-bottom:6px;">AI Trust & Safety</h4>
+        <div style="margin: 10px 0;">
+            <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:3px;">
+                <span><strong>Confidence Level</strong></span>
+                <span style="font-family:monospace; background:#1A1A1A; color:#FFF; padding:1px 4px; border-radius:2px; font-size:0.75rem;">{level}</span>
+            </div>
+            <div style="background:#E6E2D8; height:6px; border-radius:3px; overflow:hidden;">
+                <div style="background:#1A1A1A; height:100%; width:{conf*100}%;"></div>
+            </div>
+        </div>
+        <div style="margin: 10px 0;">
+            <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:3px;">
+                <span><strong>RAG Groundedness</strong></span>
+                <span style="font-family:monospace; font-size:0.75rem;">{ground*100:.0f}%</span>
+            </div>
+            <div style="background:#E6E2D8; height:6px; border-radius:3px; overflow:hidden;">
+                <div style="background:#1A1A1A; height:100%; width:{ground*100}%;"></div>
+            </div>
+        </div>
+        <div style="margin: 10px 0;">
+            <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:3px;">
+                <span><strong>Frustration / Friction</strong></span>
+                <span style="font-family:monospace; font-size:0.75rem;">{frict*100:.0f}%</span>
+            </div>
+            <div style="background:#E6E2D8; height:6px; border-radius:3px; overflow:hidden;">
+                <div style="background:#8C2D19; height:100%; width:{frict*100}%;"></div>
+            </div>
+        </div>
+    </div>
+    """
+    st.markdown(meters_html, unsafe_allow_html=True)
 
     # Manual Handover Escalation Button
     if st.button("🤝 Escalation / Talk to Advisor", type="primary", use_container_width=True):
